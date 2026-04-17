@@ -1,0 +1,1382 @@
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evento – Família Lunardi – 1º Encontro da Família Lunardi</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Sora:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                red: "#A7181D",
+                hover: "#8A1317",
+                dark: "#1e1e1e",
+                gray: "#555555",
+              },
+            },
+            fontFamily: {
+              sora: ["Sora", "sans-serif"],
+              montserrat: ["Montserrat", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: #555555;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Sora", sans-serif;
+        color: #1e1e1e;
+      }
+
+      /* Modais CSS para o script.js funcionar */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.95);
+        background: #fff;
+        width: 95%;
+        max-width: 850px;
+        border-radius: 16px;
+        z-index: 1001;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        display: none;
+        opacity: 0;
+        transition: all 0.3s;
+        max-height: 90vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      .modal-overlay.active,
+      .modal.active {
+        display: block;
+      }
+      .modal-overlay.show,
+      .modal.show {
+        opacity: 1;
+      }
+      .modal.show {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    </style>
+  </head>
+  <body class="bg-white antialiased">
+    <!-- Header -->
+    <header class="bg-white py-4 shadow-sm relative z-50">
+      <div
+        class="max-w-[1200px] mx-auto px-5 w-full flex items-center justify-between"
+      >
+        <a href="#inicio" class="flex items-center">
+          <img
+            src="../assets/cropped-Brasao-Familia-Lunardi.png"
+            alt="Família Lunardi"
+            class="max-h-20"
+          />
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex gap-8 items-center">
+          <a href="#inicio" class="text-[15px] font-semibold text-brand-red"
+            >Início</a
+          >
+          <a
+            href="#convite"
+            class="text-[15px] font-semibold text-brand-dark hover:text-brand-red transition-colors"
+            >Convite</a
+          >
+          <a
+            href="#inscricao"
+            class="text-[15px] font-semibold text-brand-dark hover:text-brand-red transition-colors"
+            >Inscrição</a
+          >
+          <a
+            href="#loja"
+            class="text-[15px] font-semibold text-brand-dark hover:text-brand-red transition-colors"
+            >Loja</a
+          >
+          <a
+            href="#hospedagem"
+            class="text-[15px] font-semibold text-brand-dark hover:text-brand-red transition-colors"
+            >Hospedagem</a
+          >
+          <a
+            href="#localizacao"
+            class="text-[15px] font-semibold text-brand-dark hover:text-brand-red transition-colors"
+            >Localização</a
+          >
+        </nav>
+
+        <!-- Mobile Button -->
+        <button
+          id="mobileMenuToggle"
+          class="md:hidden flex flex-col gap-1.5 focus:outline-none"
+        >
+          <span class="w-6 h-[3px] bg-brand-red block"></span>
+          <span class="w-6 h-[3px] bg-brand-red block"></span>
+          <span class="w-6 h-[3px] bg-brand-red block"></span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu. Will be toggled by script.js nav-menu class but here we inline standard JS or let script.js adapt -->
+      <nav
+        id="mobileMenu"
+        class="nav-menu hidden absolute top-full left-0 w-full bg-white shadow-md p-5 flex-col gap-4 items-center"
+      >
+        <a href="#inicio" class="text-base font-semibold text-brand-red"
+          >Início</a
+        >
+        <a href="#convite" class="text-base font-semibold text-brand-dark"
+          >Convite</a
+        >
+        <a href="#inscricao" class="text-base font-semibold text-brand-dark"
+          >Inscrição</a
+        >
+        <a href="#loja" class="text-base font-semibold text-brand-dark">Loja</a>
+        <a href="#hospedagem" class="text-base font-semibold text-brand-dark"
+          >Hospedagem</a
+        >
+        <a href="#localizacao" class="text-base font-semibold text-brand-dark"
+          >Localização</a
+        >
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      id="inicio"
+      class="relative bg-white py-24 md:py-32 bg-[url('../assets/Line-scaled.webp')] bg-top bg-no-repeat bg-cover"
+    >
+      <div
+        class="max-w-[1200px] mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-12 relative z-10"
+      >
+        <div class="flex-1 text-center md:text-left">
+          <h1
+            class="text-4xl md:text-6xl font-bold text-brand-dark leading-tight mb-6"
+          >
+            1º Encontro da <br />
+            <span class="text-brand-red"
+              >Família Lunardi <br />(Tottari e Osei)</span
+            >
+          </h1>
+          <p class="text-lg text-brand-dark mb-10 text-justify md:text-left">
+            Estamos muito felizes em anunciar o 1º Encontro da Família Lunardi
+            (Tottari e Osei), um evento que celebra nossas raízes, tradições e a
+            força de nossos laços. Junte-se a nós para um dia inesquecível,
+            repleto de histórias, conexões e memórias!
+          </p>
+          <a
+            href="#inscricao"
+            class="inline-block bg-brand-red hover:bg-brand-hover text-white font-semibold text-base py-3 px-16 rounded-full transition-colors shadow-lg"
+            >Inscreva-se</a
+          >
+        </div>
+        <div class="flex-1 rounded-[36px] overflow-hidden shadow-2xl">
+          <img
+            src="../assets/vinho_e_idosos.jpg"
+            alt="Família Celebrando"
+            class="w-full max-w-[560px] mx-auto block"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Gradient Divider -->
+    <div class="h-3 w-full bg-gradient-to-r from-brand-red to-black"></div>
+
+    <!-- Convite Section -->
+    <section id="convite" class="pt-24 pb-8">
+      <div class="max-w-[900px] mx-auto px-5 flex flex-col items-center gap-12">
+        <div>
+          <img
+            width="50"
+            height="31"
+            src="../assets/seta-baixo.svg"
+            alt=""
+            class="mx-auto block"
+          />
+        </div>
+        <div class="text-center flex flex-col gap-6 w-full">
+          <h2
+            class="text-4xl md:text-[44px] font-bold text-brand-dark leading-tight"
+          >
+            Você é nosso convidado para o 1º Encontro da
+            <span class="text-brand-red"
+              >Família Lunardi <br />
+              (Tottari e Osei)</span
+            >
+          </h2>
+          <p class="text-[17px] text-brand-gray text-center leading-[1.7]">
+            Idealizado pelo Sr. Milton Lunardi, o 1º Encontro da Família Lunardi
+            tem como objetivo fortalecer os laços familiares e também marcar o
+            lançamento da edição atualizada do livro “Lunardi (Tottari e Osei) –
+            Uma história de Foza – Itália | Fagundes Varela – RS | Xaxim – SC”.
+            A primeira edição desta valiosa obra foi lançada em 2003, e agora,
+            em 2026, serão disponibilizados 400 exemplares atualizados.
+          </p>
+          <div class="text-[17px] text-brand-gray text-center mt-2">
+            Não perca a oportunidade de
+            <a
+              href="#loja"
+              class="text-brand-dark underline font-bold hover:text-brand-red transition-colors"
+              >garantir seu exemplar</a
+            >
+            e fortalecer os laços que nos unem!
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Inscrição Secion -->
+    <section id="inscricao" class="py-20 bg-white">
+      <div
+        class="max-w-[1200px] mx-auto px-5 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16"
+      >
+        <!-- Esquerda: formulário -->
+        <div class="lg:col-span-7">
+          <h3
+            class="text-brand-red text-2xl md:text-[25px] font-bold mb-6 pt-2"
+          >
+            *Preenchimento obrigatório.
+          </h3>
+
+          <form
+            id="inscricaoForm"
+            action="https://hook.us1.make.com/6c3gv3mi9pwe72hbefwogeompytlgb6h"
+            method="POST"
+            class="flex flex-col gap-5"
+          >
+            <div>
+              <label class="block text-[13px] font-medium text-brand-dark mb-2"
+                >Nome Completo (Representante da Família)</label
+              >
+              <input
+                type="text"
+                name="nome"
+                required
+                class="w-full border border-brand-gray rounded-lg py-2.5 px-4 outline-none focus:ring-1 focus:ring-brand-red transition-all text-sm"
+              />
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label
+                  class="block text-[13px] font-medium text-brand-dark mb-2"
+                  >Data de Nascimento</label
+                >
+                <input
+                  type="text"
+                  name="nascimento"
+                  placeholder="DD/MM/AAAA"
+                  required
+                  class="w-full border border-brand-gray rounded-lg py-2.5 px-4 outline-none focus:ring-1 focus:ring-brand-red transition-all text-sm"
+                />
+              </div>
+              <div>
+                <label
+                  class="block text-[13px] font-medium text-brand-dark mb-2"
+                  >Telefone/WhatsApp</label
+                >
+                <input
+                  type="tel"
+                  name="whatsapp"
+                  required
+                  class="w-full border border-brand-gray rounded-lg py-2.5 px-4 outline-none focus:ring-1 focus:ring-brand-red transition-all text-sm"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[13px] font-medium text-brand-dark mb-2"
+                >E-mail</label
+              >
+              <input
+                type="email"
+                name="email"
+                required
+                class="w-full border border-brand-gray rounded-lg py-2.5 px-4 outline-none focus:ring-1 focus:ring-brand-red transition-all text-sm"
+              />
+            </div>
+
+            <div>
+              <label class="block text-[13px] font-medium text-brand-dark mb-2"
+                >Endereço (Rua, Número, Cidade, Estado, País, CEP)</label
+              >
+              <input
+                type="text"
+                name="endereco"
+                required
+                class="w-full border border-brand-gray rounded-lg py-2.5 px-4 outline-none focus:ring-1 focus:ring-brand-red transition-all text-sm"
+              />
+            </div>
+
+            <div>
+              <label class="block text-[13px] font-medium text-brand-dark mb-2"
+                >A qual ramo da família você pertence? (Geração que veio da
+                Itália)</label
+              >
+              <select
+                name="ramo"
+                required
+                class="w-full border border-brand-gray rounded-lg py-2.5 px-4 outline-none focus:ring-1 focus:ring-brand-red transition-all text-sm bg-white"
+              >
+                <option value="Giacomo">Giacomo</option>
+                <option value="Pedro">Pedro</option>
+                <option value="João">João</option>
+                <option value="Antônio">Antônio</option>
+                <option value="Lucia">Lucia</option>
+                <option value="Não aplicável">Não aplicável</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-[13px] font-medium text-brand-dark mb-2"
+                >A qual sub-ramo da família você pertence? (1ª geração nascida
+                no Brasil)</label
+              >
+              <input
+                type="text"
+                name="subramo"
+                class="w-full border border-brand-gray rounded-lg py-2.5 px-4 outline-none focus:ring-1 focus:ring-brand-red transition-all text-sm"
+              />
+            </div>
+
+            <div>
+              <label class="block text-[13px] font-medium text-brand-dark mb-2"
+                >Sinalize quantos membros da sua família irão ao evento
+                (incluindo você)</label
+              >
+              <input
+                type="number"
+                name="membros_total"
+                placeholder="Adultos"
+                required
+                min="1"
+                max="10"
+                class="w-full border border-brand-gray rounded-lg py-2.5 px-4 outline-none focus:ring-1 focus:ring-brand-red transition-all text-sm mb-4"
+              />
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input
+                  type="number"
+                  name="criancas6_10"
+                  placeholder="Criança (De 6 a 10 anos)"
+                  min="0"
+                  max="10"
+                  class="w-full border border-brand-gray rounded-lg py-2.5 px-4 outline-none focus:ring-1 focus:ring-brand-red transition-all text-sm"
+                />
+                <input
+                  type="number"
+                  name="criancas_ate_5"
+                  placeholder="Criança (Até 5 anos)"
+                  min="0"
+                  max="10"
+                  class="w-full border border-brand-gray rounded-lg py-2.5 px-4 outline-none focus:ring-1 focus:ring-brand-red transition-all text-sm"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                class="block text-[13px] font-medium text-brand-dark mb-2 mt-2"
+                >Cite o nome e parentesco dos familiares para os quais você está
+                adquirindo a participação neste Encontro</label
+              >
+              <input
+                type="text"
+                name="nomes_familiares"
+                class="w-full border border-brand-gray rounded-lg py-2.5 px-4 outline-none focus:ring-1 focus:ring-brand-red transition-all text-sm"
+              />
+            </div>
+
+            <div>
+              <label class="block text-[13px] font-medium text-brand-dark mb-2"
+                >Alguém da família possui necessidade especial? Se sim,
+                qual?</label
+              >
+              <input
+                type="text"
+                name="necessidades"
+                class="w-full border border-brand-gray rounded-lg py-2.5 px-4 outline-none focus:ring-1 focus:ring-brand-red transition-all text-sm"
+              />
+            </div>
+
+            <div>
+              <label class="block text-[13px] font-medium text-brand-dark mb-2"
+                >Alguém da família possui restrição alimentar? Se sim,
+                qual?</label
+              >
+              <input
+                type="text"
+                name="restricoes"
+                class="w-full border border-brand-gray rounded-lg py-2.5 px-4 outline-none focus:ring-1 focus:ring-brand-red transition-all text-sm"
+              />
+            </div>
+
+            <div class="flex items-start gap-3 mt-4 mb-2">
+              <input
+                type="checkbox"
+                id="ciente"
+                name="ciente"
+                required
+                class="mt-1 w-4 h-4 accent-brand-red rounded"
+              />
+              <label
+                for="ciente"
+                class="text-[13.5px] text-brand-gray flex-1 leading-relaxed"
+              >
+                Estou ciente de que a participação no evento envolve uma
+                contribuição individual de
+                <strong class="text-brand-dark"
+                  >R$160,00 por adulto e R$100,00 por criança</strong
+                >
+                (de 6 a 11 anos). Crianças
+                <strong class="text-brand-dark"> até 5 anos</strong> não pagam.
+              </label>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-brand-red hover:bg-brand-hover text-white font-semibold py-4 rounded-lg mt-2 transition-colors text-[14px]"
+            >
+              Confirme sua inscrição e siga para a aquisição de refeições,
+              livros e chaveiros
+            </button>
+          </form>
+        </div>
+
+        <!-- Direita: Agenda e Infos -->
+        <div class="lg:col-span-5 flex flex-col gap-10">
+          <div>
+            <p class="font-bold text-brand-dark text-[17px] mb-5">
+              Anote na agenda:
+            </p>
+            <ul class="flex flex-col gap-5">
+              <li class="flex items-start gap-3">
+                <svg
+                  class="w-[18px] h-[18px] text-brand-red shrink-0 mt-1"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                >
+                  <path
+                    d="M8.78 1.92128C12.652 1.92128 15.804 5.0733 15.804 8.94528C15.804 12.8173 12.652 15.9693 8.78 15.9693C4.90802 15.9693 1.756 12.8173 1.756 8.94528C1.756 5.0733 4.90802 1.92128 8.78 1.92128ZM8.78 0.165283C3.93344 0.165283 0 4.09872 0 8.94528C0 13.7918 3.93344 17.7253 8.78 17.7253C13.6266 17.7253 17.56 13.7918 17.56 8.94528C17.56 4.09872 13.6266 0.165283 8.78 0.165283ZM8.78 11.5793L5.268 8.06728H12.292L8.78 11.5793Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+                <p class="text-[15px] text-brand-gray">
+                  <strong class="text-brand-dark">Data:</strong> Sábado, 16 de
+                  Maio de 2026
+                </p>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg
+                  class="w-[18px] h-[18px] text-brand-red shrink-0 mt-1"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                >
+                  <path
+                    d="M8.78 1.92128C12.652 1.92128 15.804 5.0733 15.804 8.94528C15.804 12.8173 12.652 15.9693 8.78 15.9693C4.90802 15.9693 1.756 12.8173 1.756 8.94528C1.756 5.0733 4.90802 1.92128 8.78 1.92128ZM8.78 0.165283C3.93344 0.165283 0 4.09872 0 8.94528C0 13.7918 3.93344 17.7253 8.78 17.7253C13.6266 17.7253 17.56 13.7918 17.56 8.94528C17.56 4.09872 13.6266 0.165283 8.78 0.165283ZM8.78 11.5793L5.268 8.06728H12.292L8.78 11.5793Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+                <p class="text-[15px] text-brand-gray">
+                  <strong class="text-brand-dark">Local: </strong>Sociedade
+                  Recreativa e Cultural Xaxim - SRCX - Clube Xaxiense
+                </p>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg
+                  class="w-[18px] h-[18px] text-brand-red shrink-0 mt-1"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                >
+                  <path
+                    d="M8.78 1.92128C12.652 1.92128 15.804 5.0733 15.804 8.94528C15.804 12.8173 12.652 15.9693 8.78 15.9693C4.90802 15.9693 1.756 12.8173 1.756 8.94528C1.756 5.0733 4.90802 1.92128 8.78 1.92128ZM8.78 0.165283C3.93344 0.165283 0 4.09872 0 8.94528C0 13.7918 3.93344 17.7253 8.78 17.7253C13.6266 17.7253 17.56 13.7918 17.56 8.94528C17.56 4.09872 13.6266 0.165283 8.78 0.165283ZM8.78 11.5793L5.268 8.06728H12.292L8.78 11.5793Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+                <div class="text-[14px] text-brand-gray leading-relaxed w-full">
+                  <strong class="text-brand-dark text-[15px] block mb-3"
+                    >Programação:</strong
+                  >
+                  <p class="mb-1">
+                    <strong class="text-brand-dark font-semibold"
+                      >09h00 às 10h30</strong
+                    >
+                    - Recepção, Credenciamento e Café de Integração
+                  </p>
+                  <p class="mb-1">
+                    <strong class="text-brand-dark font-semibold"
+                      >10h30 às 11h00</strong
+                    >
+                    - Boas-Vindas e Vídeo Lunardi, Uma História da Itália a
+                    Xaxim
+                  </p>
+                  <p class="mb-1">
+                    <strong class="text-brand-dark font-semibold"
+                      >11h00 às 12h00</strong
+                    >
+                    - Fala Representantes Ramos Familiares
+                  </p>
+                  <p class="mb-1">
+                    <strong class="text-brand-dark font-semibold"
+                      >12h00 às 13h30</strong
+                    >
+                    - Almoço Italiano
+                  </p>
+                  <p class="mb-1">
+                    <strong class="text-brand-dark font-semibold"
+                      >13h30 às 16h00</strong
+                    >
+                    - Convivência, Exibição de Fotos
+                  </p>
+                  <p>
+                    <strong class="text-brand-dark font-semibold"
+                      >16h15 às 17h00</strong
+                    >
+                    - Fotos, Foto Oficial e Encerramento
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="text-[17px] text-brand-gray mb-10 mt-4 leading-relaxed">
+              Crie memórias inesquecíveis ao lado da sua família!
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-2xl font-semibold text-brand-dark mb-4">
+              Contribuição Individual
+            </h4>
+            <p class="text-[15px] text-brand-gray mb-4 leading-relaxed">
+              Para que possamos proporcionar um evento especial para todos, o
+              custo de alimentação será dividido entre os participantes. O valor
+              da contribuição individual será de R$160,00 por adulto e R$100,00
+              por criança (entre 6 e 11 anos). Crianças até 5 anos não pagam.
+              <a
+                href="#loja"
+                class="text-brand-dark font-bold hover:text-brand-red underline"
+                >Clique aqui</a
+              >
+              para selecionar o número de ingressos e realizar o pagamento.
+            </p>
+            <p class="text-[15px] text-brand-gray">
+              <strong>Obs.:</strong> O pagamento será recebido pelo Coordenador
+              do Encontro – Júlio César Lunardi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Loja Section -->
+    <section id="loja" class="py-20 bg-white">
+      <div class="max-w-[1200px] mx-auto px-5">
+        <div class="mb-14 w-full text-left">
+          <p class="text-[17px] md:text-[19px] text-[#1e1e1e] mb-3 md:mb-1">
+            Faça as suas aquisições e participe do
+          </p>
+          <div class="flex flex-col mb-4">
+            <h2
+              class="text-[28px] sm:text-4xl lg:text-[45px] font-bold text-brand-red leading-[1.15]"
+            >
+              1º Encontro da Família
+            </h2>
+            <div
+              class="flex flex-wrap sm:flex-nowrap items-center gap-3 sm:gap-6 mt-1.5 md:mt-0"
+            >
+              <h2
+                class="text-[28px] sm:text-4xl lg:text-[45px] font-bold text-brand-red leading-[1.15]"
+              >
+                Lunardi (Tottari e Osei)
+              </h2>
+              <div
+                class="h-[2px] bg-brand-red flex-1 lg:mt-3 mt-1 min-w-[50px] w-full sm:w-auto"
+              ></div>
+            </div>
+          </div>
+          <p
+            class="text-[16px] md:text-[17px] text-[#1e1e1e] max-w-[850px] leading-relaxed mt-4"
+          >
+            Para uma melhor gestão do nosso Encontro, as aquisições poderão ser
+            feitas nesta página impreterivelmente até o dia
+            <strong class="font-bold">30/04/2026</strong>.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Adulto -->
+          <div
+            class="border border-[#D4D4D4] rounded-2xl overflow-hidden flex flex-col transition hover:shadow-lg bg-white"
+          >
+            <img
+              src="../assets/lunardi.jpg"
+              alt="Adultos"
+              class="w-full h-[280px] object-cover"
+            />
+            <div class="p-8 flex flex-col gap-4 flex-1">
+              <h3 class="font-bold text-2xl text-brand-dark">
+                Contribuição Individual - Adulto - A partir de 12 anos
+              </h3>
+              <p class="text-[15px] text-brand-gray">
+                Inclui Café Integração + Almoço + Café Colonial (bebidas por
+                conta do participante).
+              </p>
+              <p class="text-[15px] text-brand-gray">
+                Obs.: As vagas para o Encontro, a serem adquiridas através das
+                refeições, estão limitadas a 360 pessoas, por restrições de
+                espaço do Clube da Cidade.
+              </p>
+              <p class="text-[15px] text-brand-dark font-medium mt-auto">
+                O pagamento será recebido pelo Coordenador do Encontro – Júlio
+                César Lunardi.
+              </p>
+              <h4 class="text-2xl font-bold text-brand-dark mt-2">R$ 160,00</h4>
+              <a
+                href="https://loja.oguarany.com.br/contribuicao-individual-adulto/p"
+                class="inline-block bg-brand-red hover:bg-brand-hover text-white font-semibold py-3 px-8 rounded-full mt-2 self-start transition-colors"
+                >Adquira já</a
+              >
+            </div>
+          </div>
+
+          <!-- Criança -->
+          <div
+            class="border border-[#D4D4D4] rounded-2xl overflow-hidden flex flex-col transition hover:shadow-lg bg-white"
+          >
+            <img
+              src="../assets/menina-feliz-se-divertindo-com-seus-pais-durante-uma-refeicao-na-mesa-de-jantar_637285-3227.avif"
+              alt="Crianças"
+              class="w-full h-[280px] object-cover"
+            />
+            <div class="p-8 flex flex-col gap-4 flex-1">
+              <h3 class="font-bold text-2xl text-brand-dark">
+                Contribuição Individual - Crianças - De 6 a 11 anos
+              </h3>
+              <p class="text-[15px] text-brand-gray">
+                Inclui Café Integração + Almoço + Café Colonial (bebidas por
+                conta do participante).
+              </p>
+              <p class="text-[15px] text-brand-gray">
+                Obs.: As vagas para o Encontro, a serem adquiridas através das
+                refeições, estão limitadas a 360 pessoas, por restrições de
+                espaço do Clube da Cidade.
+              </p>
+              <p class="text-[15px] text-brand-dark font-medium mt-auto">
+                O pagamento será recebido pelo Coordenador do Encontro – Júlio
+                César Lunardi.
+              </p>
+              <h4 class="text-2xl font-bold text-brand-dark mt-2">R$ 100,00</h4>
+              <a
+                href="https://loja.oguarany.com.br/contribuicao-individual-criancas/p"
+                class="inline-block bg-brand-red hover:bg-brand-hover text-white font-semibold py-3 px-8 rounded-full mt-2 self-start transition-colors"
+                >Adquira já</a
+              >
+            </div>
+          </div>
+
+          <!-- Livro -->
+          <div
+            class="border border-[#D4D4D4] rounded-2xl overflow-hidden flex flex-col transition hover:shadow-lg bg-white"
+          >
+            <img
+              src="../assets/Nova-Capa-Livro-1024x683.webp"
+              alt="Livro Família Lunardi"
+              class="w-full h-[280px] object-cover bg-gray-50"
+            />
+            <div class="p-8 flex flex-col gap-4 flex-1">
+              <h3 class="font-bold text-2xl text-brand-dark">
+                Livro “Lunardi (Tottari e Osei) - Uma história...
+              </h3>
+              <p class="text-[15px] text-brand-gray">
+                Coletânea exclusiva com a história da Família Lunardi. 2ª Edição
+                revisada e ampliada 2025.
+              </p>
+              <p class="text-[15px] text-brand-gray">
+                Obs.: A venda dos Livros está limitada a 400 exemplares,
+                quantidade impressa para esta Edição.
+              </p>
+              <p class="text-[15px] text-brand-dark font-medium mt-auto">
+                O pagamento será recebido pelo Coordenador do Encontro – Júlio
+                César Lunardi.
+              </p>
+              <h4 class="text-2xl font-bold text-brand-dark mt-2">R$ 175,00</h4>
+              <a
+                href="https://loja.oguarany.com.br/livro-lunardi-tottari-e-osei-2a-edicao/p"
+                class="inline-block bg-brand-red hover:bg-brand-hover text-white font-semibold py-3 px-8 rounded-full mt-2 self-start transition-colors"
+                >Adquira já</a
+              >
+            </div>
+          </div>
+
+          <!-- Chaveiro -->
+          <div
+            class="border border-[#D4D4D4] rounded-2xl overflow-hidden flex flex-col transition hover:shadow-lg bg-white"
+          >
+            <img
+              src="../assets/foto-real-do-chaveiro-familia-lunardi.webp"
+              alt="Chaveiro Personalizado"
+              class="w-full h-[280px] object-cover object-bottom"
+            />
+            <div class="p-8 flex flex-col gap-4 flex-1">
+              <h3 class="font-bold text-2xl text-brand-dark">
+                Chaveiro Personalizado Brasão Lunardi
+              </h3>
+              <p class="text-[15px] text-brand-gray">
+                Um símbolo de pertencimento e orgulho familiar.
+              </p>
+              <p class="text-[15px] text-brand-gray">
+                Obs.: A venda dos Chaveiros está limitada a 600 peças,
+                quantidade confeccionada para esta Edição.
+              </p>
+              <p class="text-[15px] text-brand-dark font-medium mt-auto">
+                O pagamento será recebido pelo Coordenador do Encontro – Júlio
+                César Lunardi.
+              </p>
+              <h4 class="text-2xl font-bold text-brand-dark mt-2">R$ 15,00</h4>
+              <a
+                href="https://loja.oguarany.com.br/chaveiro-personalizado-brasao-lunardi/p"
+                class="inline-block bg-brand-red hover:bg-brand-hover text-white font-semibold py-3 px-8 rounded-full mt-2 self-start transition-colors"
+                >Adquira já</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="mt-20 text-[15.5px] text-[#555] font-medium leading-relaxed text-center w-full"
+        >
+          <p class="mb-4">
+            <strong>Obs.:</strong> ao se atingir o limite de acomodação do
+            Clube, automaticamente estarão bloqueadas novas aquisições. O mesmo
+            comentário é válido para os Livros e Chaveiros. Portanto, garanta
+            sua participação com antecedência.
+          </p>
+          <p>
+            <strong>O que fazer em caso de cancelamento?</strong> O eventual
+            cancelamento da aquisição das refeições e participação será aceito
+            até o dia <strong>05/05/2026</strong>, e poderá ser solicitado via
+            <strong>WhatsApp: (49) 9 9993-2814</strong>.
+          </p>
+          <div class="h-[2px] bg-[#A7181D] w-full mt-10"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hospedagem Section -->
+    <section id="hospedagem" class="py-24 bg-white">
+      <div class="max-w-[1200px] mx-auto px-5">
+        <div class="text-center mb-16">
+          <h2
+            class="text-4xl md:text-[44px] font-bold text-brand-dark mb-4 leading-tight"
+          >
+            Conheça algumas sugestões <br class="hidden sm:block" />de
+            hospedagem na região!
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          <!-- Hotel 1: Mogano -->
+          <div
+            class="flex flex-col border border-gray-200 shadow-sm bg-white rounded-xl overflow-hidden transition hover:shadow-md"
+          >
+            <img
+              src="../assets/hotel-mogano.webp"
+              alt="Mogano Business"
+              class="w-full h-[240px] md:h-[280px] object-cover"
+            />
+            <div class="p-6 md:p-8 flex flex-col gap-2 flex-1">
+              <h3
+                class="text-[22px] md:text-[24px] font-bold text-brand-dark leading-tight"
+              >
+                Mogano Business
+              </h3>
+              <p class="text-[15px] text-brand-gray mb-4">
+                Localização: Chapecó (SC)
+              </p>
+              <div class="mt-auto flex">
+                <button
+                  onclick="openModal('modal-mogano')"
+                  class="inline-block bg-brand-red hover:bg-[#8A1317] text-white font-medium py-2.5 px-6 rounded-full transition-colors text-[15px]"
+                >
+                  Saiba mais
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hotel 2: Tri Hotel -->
+          <div
+            class="flex flex-col border border-gray-200 shadow-sm bg-white rounded-xl overflow-hidden transition hover:shadow-md"
+          >
+            <img
+              src="../assets/hotel-tri.webp"
+              alt="Tri Hotel"
+              class="w-full h-[240px] md:h-[280px] object-cover"
+            />
+            <div class="p-6 md:p-8 flex flex-col gap-2 flex-1">
+              <h3
+                class="text-[22px] md:text-[24px] font-bold text-brand-dark leading-tight"
+              >
+                Tri Hotel
+              </h3>
+              <p class="text-[15px] text-brand-gray mb-4">
+                Localização: Chapecó (SC)
+              </p>
+              <div class="mt-auto flex">
+                <button
+                  onclick="openModal('modal-tri')"
+                  class="inline-block bg-brand-red hover:bg-[#8A1317] text-white font-medium py-2.5 px-6 rounded-full transition-colors text-[15px]"
+                >
+                  Saiba mais
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hotel 3: Acaci Park Hotel -->
+          <div
+            class="flex flex-col border border-gray-200 shadow-sm bg-white rounded-xl overflow-hidden transition hover:shadow-md"
+          >
+            <img
+              src="../assets/hotel-acaci.webp"
+              alt="Acaci Park Hotel"
+              class="w-full h-[240px] md:h-[280px] object-cover object-center"
+            />
+            <div class="p-6 md:p-8 flex flex-col gap-2 flex-1">
+              <h3
+                class="text-[22px] md:text-[24px] font-bold text-brand-dark leading-tight"
+              >
+                Acaci Park Hotel
+              </h3>
+              <p class="text-[15px] text-brand-gray mb-4">
+                Localização: Xaxim (SC)
+              </p>
+              <div class="mt-auto flex">
+                <button
+                  onclick="openModal('modal-acaci')"
+                  class="inline-block bg-brand-red hover:bg-[#8A1317] text-white font-medium py-2.5 px-6 rounded-full transition-colors text-[15px]"
+                >
+                  Saiba mais
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hotel 4: Hotel Imperador -->
+          <div
+            class="flex flex-col border border-gray-200 shadow-sm bg-white rounded-xl overflow-hidden transition hover:shadow-md"
+          >
+            <img
+              src="../assets/hotel-imperador.webp"
+              alt="Hotel Imperador"
+              class="w-full h-[240px] md:h-[280px] object-cover"
+            />
+            <div class="p-6 md:p-8 flex flex-col gap-2 flex-1">
+              <h3
+                class="text-[22px] md:text-[24px] font-bold text-brand-dark leading-tight"
+              >
+                Hotel Imperador
+              </h3>
+              <p class="text-[15px] text-brand-gray mb-4">
+                Localização: Xaxim (SC)
+              </p>
+              <div class="mt-auto flex">
+                <button
+                  onclick="openModal('modal-imperador')"
+                  class="inline-block bg-brand-red hover:bg-[#8A1317] text-white font-medium py-2.5 px-6 rounded-full transition-colors text-[15px]"
+                >
+                  Saiba mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modais de Hospedagem -->
+    <div
+      class="modal-overlay"
+      id="modalOverlay"
+      onclick="closeAllModals()"
+    ></div>
+
+    <div class="modal" id="modal-mogano">
+      <div
+        class="absolute top-3 right-3 w-9 h-9 flex items-center justify-center bg-white/90 md:bg-transparent rounded-full text-3xl text-brand-dark md:text-brand-gray cursor-pointer hover:text-brand-red z-20 shadow-sm md:shadow-none transition-colors"
+        onclick="closeAllModals()"
+      >
+        &times;
+      </div>
+      <div class="flex flex-col md:flex-row w-full h-full">
+        <div
+          class="w-full md:w-[45%] h-[200px] md:h-auto md:min-h-[350px] relative"
+        >
+          <img
+            src="../assets/hotel-mogano.webp"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+        <div
+          class="w-full md:w-[55%] p-8 lg:p-10 text-left flex flex-col justify-center"
+        >
+          <h2 class="text-[34px] font-bold text-brand-red mb-2">
+            Mogano Business
+          </h2>
+          <p class="text-[15px] text-brand-dark font-semibold mb-6">
+            Localização:
+            <span class="font-normal text-brand-gray"
+              >Av. Getúlio Vargas, 1372N, Centro | Chapecó (SC)</span
+            >
+          </p>
+          <ul
+            class="list-disc pl-5 text-brand-gray text-[14px] flex flex-col gap-1 mb-8 leading-relaxed"
+          >
+            <li>Quarto Individual <strong>R$189,00 + 4% de ISS</strong></li>
+            <li>Quarto Duplo <strong>R$269,00 + 4% de ISS</strong></li>
+            <li>Garagem <strong>R$18 + 4% de ISS</strong></li>
+            <li>Café da Manhã incluso</li>
+            <li>
+              Crianças até 5 anos que não necessitam de colchão extra não pagam
+            </li>
+            <li>
+              Crianças até 10 anos podem ser acomodadas no mesmo AP e pagam
+              R$100 por colchão extra. Acima desta idade, será necessário outro
+              apartamento
+            </li>
+          </ul>
+          <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+            <a
+              href="https://www.moganohoteis.com.br/mogano-business"
+              target="_blank"
+              class="flex-1 bg-[#222222] hover:bg-black text-center text-white font-semibold py-3 px-6 rounded-md transition-colors text-[14px]"
+              >Conheça o Hotel</a
+            >
+            <a
+              href="https://wa.me/554933216300"
+              target="_blank"
+              class="flex-1 bg-brand-red hover:bg-[#8A1317] text-center text-white font-semibold py-3 px-6 rounded-md transition-colors text-[14px]"
+              >Reserve</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-tri">
+      <div
+        class="absolute top-3 right-3 w-9 h-9 flex items-center justify-center bg-white/90 md:bg-transparent rounded-full text-3xl text-brand-dark md:text-brand-gray cursor-pointer hover:text-brand-red z-20 shadow-sm md:shadow-none transition-colors"
+        onclick="closeAllModals()"
+      >
+        &times;
+      </div>
+      <div class="flex flex-col md:flex-row w-full h-full">
+        <div
+          class="w-full md:w-[45%] h-[200px] md:h-auto md:min-h-[350px] relative"
+        >
+          <img
+            src="../assets/hotel-tri.webp"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+        <div
+          class="w-full md:w-[55%] p-8 lg:p-10 text-left flex flex-col justify-center"
+        >
+          <h2 class="text-[34px] font-bold text-brand-red mb-2">Tri Hotel</h2>
+          <p class="text-[15px] text-brand-dark font-semibold mb-6">
+            Localização:
+            <span class="font-normal text-brand-gray"
+              >Rua Amparo, 57E, Bairro Bela Vista | Chapecó (SC)</span
+            >
+          </p>
+          <ul
+            class="list-disc pl-5 text-brand-gray text-[14px] flex flex-col gap-1 mb-8 leading-relaxed"
+          >
+            <li>Quarto Individual <strong>R$206</strong></li>
+            <li>Quarto Duplo <strong>R$250</strong></li>
+            <li>Quarto Triplo <strong>R$315</strong></li>
+            <li>Estacionamento R$15/dia</li>
+            <li>Café da Manhã incluso</li>
+            <li>Crianças a partir de 5 anos pagam <strong>R$70/dia</strong></li>
+          </ul>
+          <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+            <a
+              href="https://www.trihoteis.com/chapeco/"
+              target="_blank"
+              class="flex-1 bg-[#222222] hover:bg-black text-center text-white font-semibold py-3 px-6 rounded-md transition-colors text-[14px]"
+              >Conheça o Hotel</a
+            >
+            <a
+              href="https://wa.me/554930501077"
+              target="_blank"
+              class="flex-1 bg-brand-red hover:bg-[#8A1317] text-center text-white font-semibold py-3 px-6 rounded-md transition-colors text-[14px]"
+              >Reserve</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-acaci">
+      <div
+        class="absolute top-3 right-3 w-9 h-9 flex items-center justify-center bg-white/90 md:bg-transparent rounded-full text-3xl text-brand-dark md:text-brand-gray cursor-pointer hover:text-brand-red z-20 shadow-sm md:shadow-none transition-colors"
+        onclick="closeAllModals()"
+      >
+        &times;
+      </div>
+      <div class="flex flex-col md:flex-row w-full h-full">
+        <div
+          class="w-full md:w-[45%] h-[200px] md:h-auto md:min-h-[350px] relative"
+        >
+          <img
+            src="../assets/hotel-acaci.webp"
+            class="absolute inset-0 w-full h-full object-cover object-center"
+          />
+        </div>
+        <div
+          class="w-full md:w-[55%] p-8 lg:p-10 text-left flex flex-col justify-center"
+        >
+          <h2 class="text-[34px] font-bold text-brand-red mb-2">
+            Acaci Park Hotel
+          </h2>
+          <p class="text-[15px] text-brand-dark font-semibold mb-6">
+            Localização:
+            <span class="font-normal text-brand-gray"
+              >Rodovia BR 282, KM525 | Xaxim (SC)</span
+            >
+          </p>
+          <ul
+            class="list-disc pl-5 text-brand-gray text-[14px] flex flex-col gap-1 mb-8 leading-relaxed"
+          >
+            <li>Quarto Individual <strong>R$220</strong></li>
+            <li>Quarto Duplo/Casal <strong>R$320</strong></li>
+            <li>Quarto Triplo <strong>R$420</strong></li>
+            <li>Café da Manhã incluso</li>
+            <li>Estacionamento incluso</li>
+            <li>Crianças até 6 anos não pagam</li>
+            <li>Crianças a partir de 7 a 11 anos pagam 50% do valor</li>
+          </ul>
+          <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+            <a
+              href="http://acacihotel.com.br/"
+              target="_blank"
+              class="flex-1 bg-[#222222] hover:bg-black text-center text-white font-semibold py-3 px-6 rounded-md transition-colors text-[14px]"
+              >Conheça o Hotel</a
+            >
+            <a
+              href="https://wa.me/554933531173"
+              target="_blank"
+              class="flex-1 bg-brand-red hover:bg-[#8A1317] text-center text-white font-semibold py-3 px-6 rounded-md transition-colors text-[14px]"
+              >Reserve</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-imperador">
+      <div
+        class="absolute top-3 right-3 w-9 h-9 flex items-center justify-center bg-white/90 md:bg-transparent rounded-full text-3xl text-brand-dark md:text-brand-gray cursor-pointer hover:text-brand-red z-20 shadow-sm md:shadow-none transition-colors"
+        onclick="closeAllModals()"
+      >
+        &times;
+      </div>
+      <div class="flex flex-col md:flex-row w-full h-full">
+        <div
+          class="w-full md:w-[45%] h-[200px] md:h-auto md:min-h-[350px] relative"
+        >
+          <img
+            src="../assets/hotel-imperador.webp"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+        <div
+          class="w-full md:w-[55%] p-8 lg:p-10 text-left flex flex-col justify-center"
+        >
+          <h2 class="text-[34px] font-bold text-brand-red mb-2">
+            Hotel Imperador
+          </h2>
+          <p class="text-[15px] text-brand-dark font-semibold mb-6">
+            Localização:
+            <span class="font-normal text-brand-gray"
+              >Rodovia BR 282, KM525 | Xaxim (SC)</span
+            >
+          </p>
+          <ul
+            class="list-disc pl-5 text-brand-gray text-[14px] flex flex-col gap-1 mb-8 leading-relaxed"
+          >
+            <li>Quarto Individual <strong>R$140</strong></li>
+            <li>Quarto Duplo <strong>R$250</strong></li>
+            <li>Quarto Triplo <strong>R$ 350</strong></li>
+            <li>Quarto Quádruplo <strong>R$430</strong></li>
+            <li>Café da Manhã incluso</li>
+            <li>Estacionamento incluso</li>
+            <li>Crianças até 5 anos não pagam</li>
+          </ul>
+          <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+            <a
+              href="https://www.instagram.com/hotelimperadorxaxim/"
+              target="_blank"
+              class="flex-1 bg-[#222222] hover:bg-black text-center text-white font-semibold py-3 px-6 rounded-md transition-colors text-[14px]"
+              >Conheça o Hotel</a
+            >
+            <a
+              href="https://wa.me/554933531267"
+              target="_blank"
+              class="flex-1 bg-brand-red hover:bg-[#8A1317] text-center text-white font-semibold py-3 px-6 rounded-md transition-colors text-[14px]"
+              >Reserve</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-sucesso" style="max-width: 650px">
+      <div
+        class="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full text-[32px] text-[#1e1e1e] cursor-pointer hover:text-brand-red z-20 transition-colors leading-none pb-1"
+        onclick="closeAllModals()"
+      >
+        &times;
+      </div>
+      <div class="p-8 md:p-12 text-left flex flex-col gap-6 md:gap-7 pt-12">
+        <h2
+          class="text-2xl md:text-[28px] font-medium text-[#1e1e1e] font-sora mb-2"
+        >
+          Recebemos sua inscrição!
+        </h2>
+
+        <p class="text-[17px] text-[#1e1e1e] leading-[1.6]">
+          Para realizar o pagamento da contribuição individual e comprar itens
+          oficiais da Família Lunardi,
+          <a
+            href="#loja"
+            onclick="closeAllModals()"
+            class="font-bold underline hover:text-brand-red transition-colors text-black"
+            >clique aqui.</a
+          >
+        </p>
+
+        <p class="text-[17px] text-[#1e1e1e] leading-[1.6]">
+          Para dúvidas e informações, fale conosco.
+        </p>
+
+        <a
+          href="https://wa.me/5549999932814"
+          target="_blank"
+          class="bg-[#B0171F] hover:bg-[#8A1317] text-white font-bold py-3.5 px-8 rounded-xl text-[16px] text-center transition-colors self-start mt-2 shadow-sm"
+        >
+          Fale conosco!
+        </a>
+      </div>
+    </div>
+
+    <!-- Localização Section -->
+    <section id="localizacao" class="py-24 bg-[#1e1e1e]">
+      <div class="max-w-[1200px] mx-auto px-5">
+        <div class="text-center mb-12 flex flex-col items-center">
+          <!-- Ícone de Pin Maps -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-12 h-12 text-white mb-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+          </svg>
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            Localização
+          </h2>
+          <p
+            class="text-[17px] font-medium text-gray-300 max-w-xl mx-auto leading-relaxed"
+          >
+            Sociedade Recreativa e Cultural Xaxim - SRCX - Clube Xaxiense,<br />Centro,
+            Xaxim - SC.
+          </p>
+        </div>
+
+        <div
+          class="w-full max-w-[1000px] mx-auto rounded-xl overflow-hidden shadow-2xl bg-black/20 p-2"
+        >
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14224.886997420077!2d-52.55048161284177!3d-26.959876199999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e4c6209d9e7947%3A0xceab4c1cd0f038e4!2sSociedade%20Recreativa%20Cultural%20Xaxim!5e0!3m2!1spt-BR!2sus!4v1776367293751!5m2!1spt-BR!2sus"
+            width="100%"
+            height="480"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="rounded-lg"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#18181A] pt-16 pb-20">
+      <div class="max-w-[1200px] mx-auto px-5 w-full">
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 items-center"
+        >
+          <!-- Logo -->
+          <div class="flex justify-center md:justify-start">
+            <img
+              src="../assets/cropped-Brasao-Familia-Lunardi.png"
+              alt="Logo Lunardi Footer"
+              class="max-w-[150px] object-contain"
+            />
+          </div>
+
+          <!-- Fale Conosco -->
+          <div
+            class="flex flex-col items-center md:items-end text-center md:text-right gap-2"
+          >
+            <h3
+              class="text-xl md:text-[19px] font-bold text-white mb-2 tracking-wide"
+            >
+              Fale conosco!
+            </h3>
+            <a
+              href="https://wa.me/5549999932814"
+              target="_blank"
+              class="text-gray-300 hover:text-white transition-colors text-[15.5px] tracking-wide"
+              >(49) 9 9993-2814</a
+            >
+            <a
+              href="https://wa.me/5549984071892"
+              target="_blank"
+              class="text-gray-300 hover:text-white transition-colors text-[15.5px] tracking-wide mt-2"
+              >(49) 9 8407-1892</a
+            >
+          </div>
+
+          <!-- Redes Sociais -->
+          <div
+            class="flex flex-col items-center md:items-end text-center md:text-right gap-4"
+          >
+            <h3
+              class="text-xl md:text-[19px] font-bold text-white mb-2 tracking-wide"
+            >
+              Compartilhe com sua família!
+            </h3>
+            <div class="flex items-center gap-3">
+              <a
+                href="whatsapp://send?text=https://oguarany.com.br/evento-familia-lunardi"
+                target="_blank"
+                class="w-10 h-10 bg-brand-red rounded-md flex items-center justify-center hover:opacity-80 transition-opacity"
+              >
+                <svg
+                  class="w-5 h-5 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M11.996 0A12.022 12.022 0 000 12c0 2.128.552 4.128 1.533 5.904L.252 24l6.302-1.637A11.966 11.966 0 0011.996 24c6.616 0 11.997-5.38 11.997-12S18.612 0 11.996 0zm0 22.046c-1.802 0-3.518-.46-5.074-1.328l-.364-.206-3.766.977.994-3.606-.226-.35A9.998 9.998 0 012.042 12c0-5.513 4.49-10 10-10s10 4.487 10 10-4.487 10.046-10.046 10.046zm5.495-7.513c-.302-.152-1.785-.88-2.062-.98-.276-.1-.477-.152-.678.152-.202.302-.782.98-.958 1.182-.175.202-.352.228-.654.076-1.572-.79-2.73-1.605-3.69-3.216-.176-.304.184-.282.768-1.455.076-.152.038-.278-.038-.43-.075-.152-.678-1.637-.93-2.242-.243-.59-.49-.51-.677-.518-.176-.008-.378-.008-.58-.008s-.53.076-.807.38c-.276.304-1.055 1.03-1.055 2.51 0 1.48 1.08 2.91 1.23 3.113.152.203 2.126 3.245 5.15 4.55 1.7.73 2.37.892 3.12 1.092.83.22 1.58.19 2.16.115.65-.084 1.785-.73 2.035-1.434.25-.705.25-1.308.175-1.434-.075-.126-.276-.202-.578-.354z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://www.facebook.com/sharer/sharer.php?u=https://oguarany.com.br/evento-familia-lunardi"
+                target="_blank"
+                class="w-10 h-10 bg-brand-red rounded-md flex items-center justify-center hover:opacity-80 transition-opacity"
+              >
+                <svg
+                  class="w-5 h-5 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+      // Minimal fallback logic inline incase script.js fails
+      document
+        .getElementById("mobileMenuToggle")
+        .addEventListener("click", function () {
+          const menu = document.getElementById("mobileMenu");
+          menu.classList.toggle("hidden");
+          menu.classList.toggle("flex");
+        });
+
+      const modalOverlay = document.getElementById("modalOverlay");
+
+      window.openModal = function (modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modalOverlay.classList.add("active");
+          modal.classList.add("active");
+          setTimeout(() => {
+            modalOverlay.classList.add("show");
+            modal.classList.add("show");
+          }, 10);
+        }
+      };
+
+      window.closeAllModals = function () {
+        const modals = document.querySelectorAll(".modal.active");
+        modalOverlay.classList.remove("show");
+        modals.forEach((modal) => modal.classList.remove("show"));
+        setTimeout(() => {
+          modalOverlay.classList.remove("active");
+          modals.forEach((modal) => modal.classList.remove("active"));
+        }, 300);
+      };
+    </script>
+  </body>
+</html>
